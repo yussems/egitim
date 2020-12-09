@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <button onclick="myFunction()"> tıkla beni</button>
+    <p id="demo"></p>
+    <p> Minimum age <input type="number" id="ageToCheck" value="18"></p>
+    <button onclick="show()">try it</button>
+    <script>
+        // concat ekleme yapar iki üç ekleme  yapılabilir
+        function myFunction() {
+            var name= ["Faruk", "Hasan", "Ata", "Nurhayat"];
+            var name_new = ["Belkız"];
+            var family_name = name.concat(name_new);
+            //document.getElementById("demo").innerHTML = family_name
+        }
+        //copyWithin(1 , 0) array içerisinde dizi elemanına kopyalar
+        var fruits = ["Banana","Orange", "elma" ]
+        //document.getElementById("demo").innerHTML = fruits.copyWithin(1,0) // orange'a banana olarak değiştirir
+        // orjinal dizi üzerine yazar
+        var family = ["faruk", "mete", "burak"];
+        var family_sırası = family.entries();
+        
+        for (x of family_sırası) {
+            console.log(x)
+            //document.getElementById("demo").innerHTML += x + "</br>";
+        }
+        //every()
+        var ages = [33,56];
+        function checkAdult(age) {
+            return age >= 18;
+        }
+        function myFunction() {
+            //document.getElementById("demo").innerHTML = ages.every(checkAdult);
+        }
+        // değeri 18den büyük mü küçük mü onu denetler every() ile
+        var age1 = ["29","33","40"];
+        function sayi_kontrol(yas) {
+            return yas >= document.getElementById("ageToCheck").value;
+        }
+        function show() {
+           // document.getElementById("demo").innerHTML = age1.every(sayi_kontrol);
+        }
+        var sum = 0;
+        var deger = [12,32,44,64,85];
+        deger.forEach(top_deger);
+
+        function top_deger(item) {
+            sum += item;
+            //document.getElementById("demo").innerHTML = sum;
+        }
+
+        var numbers = [12,42,55,32,54,75];
+        numbers.forEach(mytry_ten);
+
+        function mytry_ten(item,index,arr) {
+            arr[index] = item * 10;
+        } // array değerlerinin her biri 10 katını alır
+        //document.getElementById("demo").innerHTML = numbers;
+
+        var myArr = Array.from("ABCDEFG") // toplu değeri tek tek ayrı dizi olarak alır
+        console.log(myArr)
+
+
+        var room = ["bad","gardrop","pilow"];
+        var x = document.getElementById("demo");
+        //x.innerHTML = room.join(); // arasına ekleme yapar
+        console.log(x); // virgülle ayırır
+
+
+        var fruits = ["apple","kiwi","banana","mango"]
+        var x = fruits.lastIndexOf("kiwi");
+        //var a = document.getElementById("demo");
+        //a.innerHTML = x;
+
+        Array.prototype.myUcase = function() {
+            var i;
+            for(i = 0; i < this.length; i++ ) {
+                this[i] = this[i].toUpperCase();
+            }
+        };
+
+        function myFunction () {
+            var fruitsz = ["banana", "orange", "apple", "mango"];
+            fruitsz.myUcase();
+            //document.getElementById("demo").innerHTML = fruitsz
+        }
+
+
+        var number = [160,45,12 ];
+        console.log(number.reduce(myFunc));
+
+        function myFunc (total,num) {
+            return total - num ;
+        }
+
+        var meyve = ["elma","muz","çilek","vişne"]
+        var x = meyve.reverse()
+        console.log(x)
+
+
+        var okul_malzemleri = ["defter","kalem","silgi","ataç"];
+        document.getElementById("demo").innerHTML = okul_malzemleri;
+
+        function myFunction() {
+            okul_malzemleri.shift();
+            document.getElementById("demo").innerHTML = okul_malzemleri;
+        }
+
+    </script>
+</body>
+</html>

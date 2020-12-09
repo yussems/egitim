@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <button onclick="myFunction()">try</button>
+    <button onclick="show()">hello world</button>
+    <button onclick="dada()">toString</button>
+    <button onclick="newstil()"> valueof</button>
+    <p id="demo"></p>
+    <script>
+        //boolean
+        
+        function myFunction() {
+            document.getElementById("demo").innerHTML = Boolean(10>9);
+        }
+        //boolea özellikleri
+        /*
+        constructor 
+        prototype
+
+        boole özellikler
+        toString
+        valueof()
+
+        */
+
+        class Car {
+            constructor(brand){
+                this.carname = brand;
+            }
+        }
+        mycar = new Car("Ford");
+        console.log(mycar.carname);
+        // super parent class üst class tan referans alır
+
+        Boolean.prototype.myColor = function() {
+            if(this.valueOf() == true) {
+                return "Green" ;
+            }else {
+                return "Red";
+            }
+        };
+
+        function show() {
+            var a = false;
+            console.log(a.myColor())
+        }
+
+        //prototype yapıcı js booleanlarda yeni özellikler ve yöntemler ekler
+
+        function dada() {
+            var bool = true;
+            var x = bool.toString()
+            console.log(typeof x); // burada booleanı stringe çevirir
+        }
+
+        // Classes 
+        /*
+        methodu =constructor(),classta kullanılan kelimeler extends, static, super
+        */
+        //extends class dan miras alır
+        //static static yöntem tanımlar
+        //super()  ebeveyn sınıfını ifade eder
+
+
+        //extens örnek
+        // başka bir sınıfa ait alt sınıf oluşturmak için
+
+        class araba {
+            constructor(brand) {
+                this.carname = brand;
+            }
+            present(){
+                return 'I have' + this.carname;
+            }
+        }
+        class Model extends araba {
+            constructor (brand,mod) {
+                super(brand);
+                this.model = mod
+            }
+            göster() {
+                return this.present() + ", it is a " + this.model;
+            }
+        }
+        mycar = new Model("Ford", "Mustang");
+        console.log(mycar.göster());
+        
+        
+        //super() ana sınıfını belirtir
+
+
+        //static bir yöntem oluşturun ve bunun classta çağırabilir
+
+        class Person{
+            constructor(name){
+            this.firstName = name;
+            }
+            static hello() {
+                return "hello !!"
+            }
+        }
+        myPerson = new Person("Faruk"); // burada çağırılan myPerson değildir
+        console.log(Person.hello());
+
+
+
+
+    </script>
+</body>
+</html>
